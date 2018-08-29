@@ -9,10 +9,10 @@ package org.usfirst.frc.team6364.robot;
 
 public enum RobotMap {
 	// ID
-	MOTOR_L(0), 
+	MOTOR_L(2), 
 	MOTOR_R(1),
-	MOTOR_LF(2),
-	MOTOR_RF(3),
+	MOTOR_LF(8),
+	MOTOR_RF(7),
 	//joystick ID
 	JoyL(0),
 	JoyR(1);

@@ -20,10 +20,7 @@ public class TankDrive extends Command {
 	}
 
 	protected void execute() {
-		SmartDashboard.putBoolean("Drive Operational", true);
-		SmartDashboard.putNumberArray("Drive Values", Robot.drivebase.SendDriveValues("%"));
-		SmartDashboard.getBoolean("Drive Operational", false);
-
+		
 		double throttle = (1.0 - Robot.m_oi.JoyLeft.getThrottle()) / -2.0;
 
 		Robot.drivebase.setDrive(ControlMode.PercentOutput, Robot.m_oi.getLeftJoyY() * throttle,
@@ -33,13 +30,13 @@ public class TankDrive extends Command {
 
 	@Override
 	protected boolean isFinished() {
-		SmartDashboard.putBoolean("Drive Operational", false);
+		
 		return false;
 	}
 
 	@Override
 	protected void interrupted() {
-		SmartDashboard.putBoolean("Drive Operational", false);
+
 		end();
 	}
 }

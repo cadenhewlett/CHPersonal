@@ -8,25 +8,38 @@
 package org.usfirst.frc.team6364.robot;
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	public static final int LEFT_HZ_AXIS = 0;
+	public static final int LEFT_VT_AXIS = 1;
+	public static final int LEFT_Z_AXIS = 3;
+	public static final int RIGHT_HZ_AXIS = 4;
+	public static final int RIGHT_VT_AXIS = 5;
+	public static final int RIGHT_Z_AXIS = 2;
 	public static final double deadZone = 0.1;
+	
 
-	public final Joystick JoyLeft = new Joystick(RobotMap.JoyL.value);
+	public final Joystick DriverJoystick = new Joystick(RobotMap.JoyL.value);
+	public final Button button = new JoystickButton(DriverJoystick, 2);
+	
 	public final Joystick JoyRight = new Joystick(RobotMap.JoyR.value);
-
+	
 	public double getLeftJoyX() {
-		double raw = JoyLeft.getX();
+		double raw = DriverJoystick.getX();
 		return Math.abs(raw) < deadZone ? 0.0 : raw;
 
 	}
 
 	public double getLeftJoyY() {
-		double raw = JoyLeft.getY();
+		double raw = DriverJoystick.getY();
 		return Math.abs(raw) < deadZone ? 0.0 : raw;
 
 	}
@@ -43,7 +56,7 @@ public class OI {
 
 	}
 	public OI(){
-		
+	
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
